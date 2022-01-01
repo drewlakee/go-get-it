@@ -118,7 +118,7 @@ func main() {
 	}
 
 	if commandProcessor == nil {
-		fmt.Println(response.GenerateJsonResponse("result", "Incorrect command processing. Use --help"))
+		fmt.Println("Incorrect command processing. Use --help")
 	} else {
 		fmt.Println(commandProcessor.GetJsonProcessResult())
 	}
