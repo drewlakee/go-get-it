@@ -25,15 +25,15 @@ type FindFilterMongoCommandProcessor struct {
 	limit      int64
 }
 
-func NewSingleDocumentFetchByIdInt64MongoCommandProcessor(collection *mongo.Collection, id int64) *FindOneByIdInt64MongoCommandProcessor {
+func NewFindOneByIdInt64MongoCommandProcessor(collection *mongo.Collection, id int64) *FindOneByIdInt64MongoCommandProcessor {
 	return &FindOneByIdInt64MongoCommandProcessor{collection, id}
 }
 
-func NewSingleDocumentFetchByIdStringMongoCommandProcessor(collection *mongo.Collection, id string) *FindOneByIdStringMongoCommandProcessor {
+func NewFindOneByIdStringMongoCommandProcessor(collection *mongo.Collection, id string) *FindOneByIdStringMongoCommandProcessor {
 	return &FindOneByIdStringMongoCommandProcessor{collection, id}
 }
 
-func NewFilterMongoCommandProcessor(collection *mongo.Collection, filter string, limit int64) *FindFilterMongoCommandProcessor {
+func NewFindFilterMongoCommandProcessor(collection *mongo.Collection, filter string, limit int64) *FindFilterMongoCommandProcessor {
 	return &FindFilterMongoCommandProcessor{collection, filter, limit}
 }
 

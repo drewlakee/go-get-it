@@ -98,14 +98,14 @@ func main() {
 	if commandProcessor == nil {
 		if (*(documentIdInt64Command).InputValue.(*int64)) != (*documentIdInt64Command).DefaultValue.(int64) {
 			id := *(documentIdInt64Command).InputValue.(*int64)
-			commandProcessor = mongo2.NewSingleDocumentFetchByIdInt64MongoCommandProcessor(collection, id)
+			commandProcessor = mongo2.NewFindOneByIdInt64MongoCommandProcessor(collection, id)
 		}
 	}
 
 	if commandProcessor == nil {
 		if (*(documentIdStringCommand).InputValue.(*string)) != documentIdStringCommand.DefaultValue.(string) {
 			id := *(documentIdStringCommand).InputValue.(*string)
-			commandProcessor = mongo2.NewSingleDocumentFetchByIdStringMongoCommandProcessor(collection, id)
+			commandProcessor = mongo2.NewFindOneByIdStringMongoCommandProcessor(collection, id)
 		}
 	}
 
@@ -113,7 +113,7 @@ func main() {
 		if *(filterCommand.InputValue.(*string)) != filterCommand.DefaultValue.(string) {
 			filter := *(filterCommand.InputValue.(*string))
 			limit := *(limitCommand.InputValue.(*int64))
-			commandProcessor = mongo2.NewFilterMongoCommandProcessor(collection, filter, limit)
+			commandProcessor = mongo2.NewFindFilterMongoCommandProcessor(collection, filter, limit)
 		}
 	}
 
